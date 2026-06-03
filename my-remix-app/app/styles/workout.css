@@ -1,0 +1,257 @@
+/* Toàn bộ container */
+.recommended-workout {
+  font-family: "Roboto", sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề chính */
+
+/* Phần tình trạng sức khỏe */
+.health-status {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.1);
+}
+
+.health-status h3 {
+  font-size: 28px;
+  color: #28a745;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #28a745;
+  padding-bottom: 5px;
+}
+
+.health-status p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Danh sách bài tập */
+.recommended-exercises h3 {
+  font-size: 28px;
+  color: #dc3545;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #dc3545;
+  padding-bottom: 5px;
+}
+
+.exercise-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card bài tập */
+.exercise-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.exercise-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.exercise-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Thông tin bài tập */
+.exercise-info {
+  padding: 15px;
+}
+
+.exercise-info h4 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.exercise-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+.item a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  color: #007bff; /* Màu chữ mặc định cho liên kết */
+  font-size: 1rem; /* Kích thước chữ */
+  font-weight: 500; /* Độ đậm của chữ */
+  padding: 10px 15px; /* Khoảng cách giữa chữ và các cạnh của thẻ */
+  border-radius: 5px; /* Bo góc cho liên kết */
+  display: inline-block; /* Đảm bảo thẻ a có thể bao quanh text */
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà khi thay đổi trạng thái */
+}
+
+.item a:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+.item a:active {
+  transform: scale(0.98); /* Thu nhỏ một chút khi click vào */
+}
+
+.item a:focus {
+  outline: none; /* Loại bỏ outline khi focus */
+  border: 2px solid #0056b3; /* Thêm viền khi focus */
+}
+/* Nút bắt đầu */
+.start-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, #0056b3, #008ae6);
+  transform: scale(1.05);
+}
+
+/* Không có bài tập */
+.no-exercises {
+  font-size: 16px;
+  color: #ff6b6b;
+  text-align: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  /* position: sticky; */
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Đảm bảo nó sẽ nằm trên các thành phần khác */
+}
+
+/* CSS cho các nút ba chấm */
+.ellipsis-button {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.ellipsis-button:hover {
+  font-size: 0; /* Ẩn ba chấm để hiển thị icon >> hoặc << */
+}
+
+.ellipsis-button:hover::before {
+  font-size: 0; /* Ẩn dấu ba chấm khi di chuột */
+}
+
+/* Hiệu ứng cho dấu ba chấm ở phía trước (backward) */
+.ellipsis-backward:hover::after {
+  content: "<<"; /* Thay đổi thành << khi di chuột vào nút backward */
+  font-size: 16px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hiệu ứng cho dấu ba chấm ở phía sau (forward) */
+.ellipsis-forward:hover::after {
+  content: ">>"; /* Thay đổi thành >> khi di chuột vào nút forward */
+  font-size: 16px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card_group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Cho phép thẻ xuống dòng khi không đủ chỗ */
+  justify-content: space-between; /* Khoảng cách giữa các thẻ được phân bổ đều */
+}
+
+.card_group .exercise-item {
+  flex: 1 1 calc(33.333% - 15px); /* Mỗi thẻ chiếm 1/3 chiều rộng */
+  max-width: calc(34.333% - 20px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Nội dung sắp xếp theo cột */
+  justify-content: space-between; /* Giãn đều các phần trong thẻ */
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 450px; /* Chiều cao tối thiểu đồng nhất */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card_group .exercise-item:hover {
+  transform: translateY(-5px); /* Nổi lên khi hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.content_group {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa nút và tiêu đề */
+  padding-bottom: 10px;
+}
+.icon-back {
+  height: 25px;
+  width: 25px;
+}
+.icon-back:hover {
+  transform: scale(1.2); /* Phóng to nhẹ khi hover */
+}
+.header h2 {
+  font-size: 36px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  letter-spacing: 2px;
+}
+.logo_icon {
+  width: 70px;
+  height: auto;
+}
+/* Hiệu ứng underline cho tiêu đề */
+.header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #007bff;
+  border-radius: 5px;
+}

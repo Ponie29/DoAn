@@ -1,0 +1,118 @@
+// Prisma schema for your fitness application
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String       @id @default(cuid())
+  email           String       @unique
+  userName        String?
+  isEmailVerified Boolean      @default(false)
+  isAdmin         Boolean      @default(false)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  picture         String?      // Thêm trường ảnh đại diện
+
+  // Các liên kết với các bảng khác
+  workoutPlans    WorkoutPlan[]  // Lịch tập của người dùng
+  progress        UserProgress[] // Tiến trình tập luyện của người dùng
+  healthStatus    HealthStatus[] // Tình trạng sức khỏe người dùng
+  workouts        Workout[]      // Các bài tập của người dùng
+  message         Message[]
+}
+
+model HealthStatus {
+  id              Int       @id @default(autoincrement())
+  userId          String    @unique
+  weight          Float?    // Cân nặng
+  height          Float?    // Chiều cao
+  age             Int?      // Tuổi
+  condition           String?  // Tình trạng sức khỏe tổng quát (e.g., 'healthy', 'weak')
+  targetMuscleGroups  String[] // Các nhóm cơ mục tiêu (e.g., ['legs', 'chest'])
+  fitnessGoals        String   // Mục tiêu tập luyện (e.g., 'muscle gain', 'recovery')
+  intensityPreference String   // Mức độ cường độ (e.g., 'moderate', 'high')
+  equipmentPreference String[] // Dụng cụ
+  available_time  Int?      // Thời gian rảnh mỗi ngày (phút)
+  createdAt       DateTime  @default(now()) // Thời gian cập nhật tình trạng sức khỏe
+  updatedAt       DateTime  @updatedAt      // Thời gian cập nhật lần cuối
+
+  user            User      @relation(fields: [userId], references: [id])
+}
+
+model Workout {
+  id             String          @id //@default(autoincrement())
+  name           String       // Tên bài tập
+  target         String  
+  secondaryMuscles String[]     // Mục tiêu chính của bài tập (ví dụ: Abs, Biceps, ...)
+  bodyPart       String       // Phần cơ thể ảnh hưởng (ví dụ: Waist, Chest, ...)
+  equipment      String       // Thiết bị sử dụng (ví dụ: Dumbbells, Body weight, ...)     
+  gifUrl         String       // URL của hình ảnh động minh họa bài tập
+  videoUrl       String?      // URL video (nếu có)
+  difficulty     String?
+  time           Int?
+  intensity      String?
+  instructions   String[] // Hướng dẫn chi tiết bài tập
+  healthConditions String[]
+  // Các liên kết tới bảng khác
+   // Liên kết với bảng UserProgress
+  user           User?         @relation(fields: [userId], references: [id])
+  userId         String?       // Trường này liên kết tới bảng User (tùy chọn, nếu bạn muốn liên kết bài tập với user)
+}
+
+model WorkoutPlan {
+  id            Int      @id @default(autoincrement())
+  workoutId     String?
+  userId        String?
+  exerciseName  String   // Lưu tên bài tập thay vì workoutId
+  time          Int      // Thời gian tập (phút)
+  sets          Int      
+  reps          Int      // Số rep mỗi set
+  days          String   // Các ngày tập, lưu dưới dạng chuỗi (ví dụ: "Monday, Wednesday")
+  
+  user          User?     @relation(fields: [userId], references: [id])
+  exercise      Exercise? @relation(fields: [workoutId], references: [id])
+}
+
+model Exercise {
+  id             String   @id // Dùng String cho id nếu nhận giá trị id dưới dạng chuỗi từ API
+  name           String
+  target         String
+  secondaryMuscles String[] // Lưu danh sách các cơ phụ
+  bodyPart       String
+  equipment      String
+  gifUrl         String
+  difficulty     String?
+  time           Int?
+  intensity      String?
+  healthConditions String[]
+  instructions   String[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  workoutPlans   WorkoutPlan[]
+  userProgress   UserProgress[]
+}
+
+model UserProgress {
+  id          Int      @id @default(autoincrement())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   // Liên kết tới bảng User
+  exercise      Exercise? @relation(fields: [workoutId], references: [id])
+  workoutId   String      // Liên kết tới bảng Workout
+  date        DateTime // Ngày thực hiện bài tập
+  status      String   // Trạng thái bài tập (hoàn thành, chưa hoàn thành)
+  timeSpent    Int?     // Thời gian thực hiện bài tập (phút)
+}
+model Message {
+  id        Int      @id @default(autoincrement())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   // Liên kết tới bảng User
+  sender    String
+  message   String
+  timestamp DateTime @default(now())
+}

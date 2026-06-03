@@ -1,0 +1,348 @@
+/* Tổng quan */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7fbff; /* Xanh nhạt cho nền toàn trang */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.item a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  color: #007bff; /* Màu chữ mặc định cho liên kết */
+  font-size: 1rem; /* Kích thước chữ */
+  font-weight: 500; /* Độ đậm của chữ */
+  padding: 10px 15px; /* Khoảng cách giữa chữ và các cạnh của thẻ */
+  border-radius: 5px; /* Bo góc cho liên kết */
+  display: inline-block; /* Đảm bảo thẻ a có thể bao quanh text */
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà khi thay đổi trạng thái */
+}
+
+.item a:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+.item a:active {
+  transform: scale(0.98); /* Thu nhỏ một chút khi click vào */
+}
+
+.item a:focus {
+  outline: none; /* Loại bỏ outline khi focus */
+  border: 2px solid #0056b3; /* Thêm viền khi focus */
+}
+.stats-container {
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 1200px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #eaf6ff, #ffffff);
+  box-shadow: 0 8px 16px rgba(0, 71, 171, 0.2); /* Tăng chiều sâu */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa nút và tiêu đề */
+}
+.icon-back {
+  height: 25px;
+  width: 25px;
+}
+.icon-back:hover {
+  transform: scale(1.2); /* Phóng to nhẹ khi hover */
+}
+.logo_icon {
+  width: 70px;
+  height: auto;
+}
+.header h1 {
+  font-size: 25px; /* Kích thước chữ lớn hơn */
+  font-weight: bold; /* Phông chữ đậm */
+  color: #007bff; /* Màu xanh dương mặc định */
+  text-align: center; /* Căn giữa nội dung */
+  text-transform: uppercase; /* Chữ viết hoa toàn bộ */
+  letter-spacing: 5px; /* Tăng khoảng cách giữa các chữ */
+  font-family: "Poppins", sans-serif; /* Phông chữ hiện đại */
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: inline-block; /* Phù hợp với nội dung chữ */
+  position: relative; /* Cho phép thêm các thành phần vị trí tuyệt đối */
+  background: linear-gradient(
+    90deg,
+    #007bff,
+    #00d4ff,
+    #007bff
+  ); /* Gradient màu xanh dương */
+  background-size: 200%; /* Tăng kích thước nền để tạo hiệu ứng */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; /* Hiển thị nền gradient qua chữ */
+  animation: gradientAnimation 3s infinite; /* Hiệu ứng gradient động */
+}
+
+h3 {
+  text-align: center;
+  color: #0056d2; /* Xanh dương đậm hơn */
+  margin: 15px 0;
+}
+
+.summary-section,
+.details-section,
+.chart-section {
+  margin: 20px 0;
+  padding: 25px;
+  border-radius: 12px;
+  background: #ffffff; /* Trắng sáng */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.5s ease-in-out; /* Thêm hiệu ứng xuất hiện */
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.summary-box {
+  background-color: #e6f7ff; /* Xanh nhạt */
+  padding: 20px;
+  border-radius: 10px;
+  width: 25%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng nổi khi hover */
+}
+
+.summary-box h3 {
+  font-size: 1.2rem;
+  color: #0047ab;
+}
+
+.summary-box p {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.chart-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.chart-section .recharts-wrapper {
+  max-width: 100%;
+  height: 500px;
+}
+
+/* Bảng */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+table th {
+  background-color: #0047ab; /* Xanh đậm */
+  color: #fff; /* Chữ trắng */
+  text-transform: uppercase;
+}
+
+table td {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+table tr:nth-child(even) td {
+  background-color: #eaf6ff; /* Xanh nhạt hơn */
+}
+
+table tr:hover td {
+  background-color: #d5eafc; /* Tô sáng hàng khi hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Tooltip */
+.recharts-tooltip-label {
+  color: #0047ab !important;
+  font-weight: bold;
+}
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #374151;
+}
+.total-time-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f4f8; /* Màu nền nhẹ */
+  border-radius: 10px; /* Bo góc */
+  padding: 15px 20px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho thẻ */
+  max-width: 300px;
+  font-size: 1.2rem; /* Tăng kích thước chữ */
+  transition: all 0.3s ease-in-out;
+  font-family: "Roboto", sans-serif; /* Chọn font đẹp và dễ đọc */
+  letter-spacing: 0.5px; /* Thêm khoảng cách giữa các chữ */
+}
+
+.total-time-container:hover {
+  transform: translateY(-5px); /* Đẩy nhẹ thẻ khi hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Tăng độ đổ bóng khi hover */
+}
+
+.icon-time {
+  margin-right: 15px;
+  font-size: 1.7rem; /* Kích thước icon lớn hơn một chút */
+  color: #007bff; /* Màu xanh cho icon */
+  transition: color 0.3s ease-in-out;
+}
+
+.icon-time:hover {
+  color: #0056b3; /* Màu tối hơn khi hover */
+}
+
+.total-time-container strong {
+  color: #333; /* Màu chữ cho phần 'Total Time Spent' */
+  font-weight: 700; /* Đậm hơn cho chữ */
+  font-size: 1.2rem; /* Chữ to hơn một chút */
+  text-transform: uppercase; /* Viết hoa để tạo sự nổi bật */
+  letter-spacing: 0.5px; /* Khoảng cách chữ để dễ đọc hơn */
+}
+
+.total-time-container span {
+  font-size: 1.1rem; /* Cải thiện kích thước chữ cho phần time */
+  color: #555; /* Màu chữ mờ để làm nổi bật số giờ */
+  font-weight: 500; /* Làm cho chữ nhẹ nhàng, dễ nhìn */
+}
+
+.total-time-container i {
+  transition: color 0.3s ease-in-out;
+}
+
+.total-time-container:hover i {
+  color: #0056b3; /* Đổi màu icon khi hover */
+}
+.summary-group {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+/* Hiệu ứng */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .summary-section {
+    flex-direction: column;
+  }
+
+  .summary-box {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+.recommended-exercises {
+  margin-top: 2rem;
+}
+
+.recommended-exercises h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.recommended-exercises ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 cột trên màn hình lớn */
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.recommended-exercises ul li {
+  text-align: center;
+  padding: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.exercise-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exercise-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-item p {
+  margin: 0.2rem 0;
+}
+
+.exercise-gif {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
+/* 📌 Tablet: Hiển thị 3 cột */
+@media (max-width: 1024px) {
+  .recommended-exercises ul {
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
+  }
+}
+
+/* 📌 Mobile lớn: Hiển thị 2 cột */
+@media (max-width: 768px) {
+  .recommended-exercises ul {
+    grid-template-columns: repeat(2, 1fr); /* Chia thành 2 cột */
+  }
+}
+
+/* 📌 Mobile nhỏ: Hiển thị 1 cột */
+@media (max-width: 480px) {
+  .recommended-exercises ul {
+    grid-template-columns: repeat(1, 1fr); /* Chỉ 1 cột */
+  }
+}

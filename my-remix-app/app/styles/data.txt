@@ -1,0 +1,12 @@
+DELETE FROM public."UserProgress"
+WHERE id BETWEEN 187 AND 190;
+
+
+	INSERT INTO public."UserProgress"("userId", "workoutId", date, status, "timeSpent") 
+SELECT 
+  'cm88i4y9p0000xpu8u3lrp9hb', 
+  '0002', 
+  CURRENT_DATE - INTERVAL '1 day' * s.day_offset, 
+  'done', 
+  FLOOR(RANDOM() * (5400 - 1800 + 1) + 1800)
+FROM GENERATE_SERIES(0, 30) AS s(day_offset);

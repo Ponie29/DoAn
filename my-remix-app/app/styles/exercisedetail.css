@@ -1,0 +1,221 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+
+/* Timer Section */
+.timer-section {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.timer-title {
+  font-size: 2rem;
+  color: #3a3a3a;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.digital-timer {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #3a3a3a;
+  margin: 20px 0;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.timer-section button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #155ab5;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Exercise Details Section */
+.details-section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.details-section h2 {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.details-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.details-section img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Related Videos Section */
+.youtube-videos {
+  width: 100%;
+}
+
+.youtube-videos h3 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+}
+
+iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.video-card p {
+  padding: 12px 10px;
+  color: #333;
+  font-size: 1.1rem;
+  background-color: #f7f7f7;
+  border-radius: 0 0 15px 15px;
+  margin-top: -10px;
+}
+
+/* Loader Style */
+.loader {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 30px;
+}
+
+.digital-timer {
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  background-color: #f1f1f1;
+  border: 3px solid #007bff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.item a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  color: #007bff; /* Màu chữ mặc định cho liên kết */
+  font-size: 1rem; /* Kích thước chữ */
+  font-weight: 500; /* Độ đậm của chữ */
+  padding: 10px 15px; /* Khoảng cách giữa chữ và các cạnh của thẻ */
+  border-radius: 5px; /* Bo góc cho liên kết */
+  display: inline-block; /* Đảm bảo thẻ a có thể bao quanh text */
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà khi thay đổi trạng thái */
+}
+
+.item a:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+.item a:active {
+  transform: scale(0.98); /* Thu nhỏ một chút khi click vào */
+}
+
+.item a:focus {
+  outline: none; /* Loại bỏ outline khi focus */
+  border: 2px solid #0056b3; /* Thêm viền khi focus */
+}
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa nút và tiêu đề */
+  padding-bottom: 10px;
+}
+.icon-back {
+  height: 25px;
+  width: 25px;
+  margin-bottom: 37px;
+}
+.icon-back:hover {
+  transform: scale(1.2); /* Phóng to nhẹ khi hover */
+}
+.logo_icon {
+  width: 70px;
+  height: auto;
+}

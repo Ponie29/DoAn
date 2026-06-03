@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Exercise" ALTER COLUMN "difficulty" DROP NOT NULL,
+ALTER COLUMN "healthConditions" DROP NOT NULL,
+ALTER COLUMN "intensity" DROP NOT NULL,
+ALTER COLUMN "time" DROP NOT NULL;

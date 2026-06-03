@@ -1,0 +1,229 @@
+.background {
+  /* background-image: url("./banner.jpg"); */
+  background-size: cover; /* Đảm bảo ảnh phủ kín toàn bộ màn hình */
+  background-position: center; /* Căn ảnh vào giữa */
+  background-repeat: no-repeat; /* Không lặp lại ảnh */
+  height: 100vh; /* Đảm bảo nền bao phủ toàn bộ chiều cao của màn hình */
+  height: 100vh;
+  margin: 0;
+  padding-top: 5px;
+}
+.custom-navbar {
+  background-color: #fff; /* Đổi màu nền */
+  border-radius: 10px; /* Bo góc navbar */
+  /* border: solid 2px; */
+  border-color: rgb(116, 116, 236);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ */
+}
+.contaner_index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.banner {
+  height: auto;
+  width: 100%;
+  padding-top: 5px;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Chiếm toàn bộ chiều cao của màn hình */
+  overflow: hidden;
+}
+.Tile_contaner {
+  width: 100%;
+}
+.Tile_contaner h3 {
+  font-family: "Poppins", sans-serif; /* Phong cách chữ hiện đại */
+  font-size: 2rem; /* Kích thước chữ lớn nổi bật */
+  font-weight: bold; /* Chữ đậm */
+  color: #007bff; /* Màu xanh dương chủ đạo */
+  text-transform: uppercase; /* Chữ in hoa */
+  text-align: center; /* Canh giữa */
+  letter-spacing: 2px; /* Khoảng cách giữa các chữ cái */
+  margin: 20px 0; /* Khoảng cách trên dưới */
+  position: relative; /* Để hỗ trợ phần gạch chân tùy chỉnh */
+}
+
+.Tile_contaner h3::after {
+  content: ""; /* Tạo phần gạch chân */
+  position: absolute;
+  bottom: -10px; /* Cách chữ một chút */
+  left: 50%; /* Bắt đầu từ giữa */
+  transform: translateX(-50%); /* Canh giữa */
+  width: 60%; /* Chiều dài gạch chân */
+  height: 3px; /* Độ dày gạch chân */
+  background-color: #007bff; /* Cùng màu với chữ */
+  border-radius: 5px; /* Gạch chân bo tròn nhẹ */
+}
+.exercise_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+}
+
+.exercise_group img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng chuyển động mượt mà */
+}
+
+.exercise_group img:hover {
+  transform: scale(1.02); /* Phóng to ảnh lên 10% khi hover */
+}
+
+.text_group {
+  font-family: "Poppins", sans-serif; /* Phông chữ hiện đại */
+  color: #333; /* Màu chữ dễ đọc */
+  text-align: center; /* Canh giữa nội dung */
+  margin: 25px auto; /* Khoảng cách xung quanh */
+  padding: 10px; /* Khoảng cách bên trong */
+  background: #f7f9fc; /* Màu nền sáng */
+  border-radius: 10px; /* Bo góc khung */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng nhẹ */
+  max-width: 600px; /* Giới hạn chiều rộng khung */
+  line-height: 1.6; /* Giãn dòng hợp lý */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+}
+
+.text_group:hover {
+  transform: translateY(-5px); /* Di chuyển khung lên một chút khi hover */
+  background: #e7f3ff; /* Màu nền sáng hơn khi hover */
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2); /* Hiệu ứng bóng lớn hơn */
+}
+
+.text_group h2 {
+  font-size: 2rem; /* Kích thước tiêu đề lớn */
+  color: #007bff; /* Màu xanh dương nổi bật */
+  margin-bottom: 15px; /* Khoảng cách với nội dung dưới */
+}
+
+.text_group p {
+  font-size: 1.2rem; /* Kích thước chữ mô tả */
+  color: #555; /* Màu chữ nhẹ hơn */
+}
+
+.features {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.features_title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.features_container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature_item {
+  flex: 1 1 200px;
+  max-width: 250px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature_item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feature_icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feature_item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature_item p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.bg-white a:hover {
+  color: #007bff;
+}
+.email-signup-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+.logo_icon {
+  width: 70px;
+  height: auto;
+}
+.email-signup-container h2 {
+  color: #3b82f6; /* text-blue-500 */
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.email-signup-container input {
+  width: 50%;
+  padding: 8px 16px;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.email-signup-container input:focus {
+  border-color: #3b82f6; /* border-blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* ring-blue-500 */
+  outline: none;
+}
+
+.email-signup-container button {
+  width: 10%;
+  padding: 12px 16px;
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-signup-container button:hover {
+  background-color: #2563eb; /* hover:bg-blue-600 */
+}
+
+.email-signup-container button:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* ring-blue-500 */
+  outline: none;
+}
+.from_gr {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.email_from {
+  width: 100%;
+}
+.max-w-sm {
+  max-width: 100%;
+}

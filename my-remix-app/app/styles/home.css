@@ -1,0 +1,379 @@
+.home_container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.exercise-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 mục trên mỗi hàng */
+  gap: 20px; /* Khoảng cách giữa các mục */
+  padding: 0;
+  list-style: none;
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  /* position: sticky; */
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Đảm bảo nó sẽ nằm trên các thành phần khác */
+}
+
+/* CSS cho các nút ba chấm */
+.ellipsis-button {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.ellipsis-button:hover {
+  font-size: 0; /* Ẩn ba chấm để hiển thị icon >> hoặc << */
+}
+
+.ellipsis-button:hover::before {
+  font-size: 0; /* Ẩn dấu ba chấm khi di chuột */
+}
+
+/* Hiệu ứng cho dấu ba chấm ở phía trước (backward) */
+.ellipsis-backward:hover::after {
+  content: "<<"; /* Thay đổi thành << khi di chuột vào nút backward */
+  font-size: 16px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hiệu ứng cho dấu ba chấm ở phía sau (forward) */
+.ellipsis-forward:hover::after {
+  content: ">>"; /* Thay đổi thành >> khi di chuột vào nút forward */
+  font-size: 16px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card_group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Để các phần tử có thể xuống dòng nếu không đủ chỗ */
+  justify-content: space-between; /* Đảm bảo các phần tử được phân phối đều */
+}
+
+.card_group .exercise-item {
+  flex: 1 1 calc(33.333% - 15px); /* Mỗi thẻ chiếm 1/3 chiều rộng của container */
+  max-width: calc(33.333% - 15px); /* Đảm bảo độ rộng tối đa cho mỗi thẻ */
+  box-sizing: border-box; /* Đảm bảo padding và margin không bị tràn ra ngoài */
+}
+/* Container tổng */
+/* Container tổng */
+/* Container tổng */
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+/* Slide */
+.banner-slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-in-out, transform 1s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+.banner-slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Hiệu ứng mờ dần khi rời khỏi slide */
+.banner-slide:not(.active) {
+  transform: scale(1.05);
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Hình ảnh */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(0.8); /* Giảm độ sáng hình ảnh để nội dung nổi bật hơn */
+  transition: filter 0.8s ease-in-out;
+}
+
+.banner-slide.active .banner-image {
+  filter: brightness(1); /* Hình ảnh hiện tại sáng hơn */
+}
+
+/* Nội dung trên slide */
+.banner-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1); /* Hiệu ứng mờ phủ nền */
+  backdrop-filter: blur(5px); /* Hiệu ứng blur */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s ease, transform 0.8s ease;
+}
+
+.banner-content:hover {
+  transform: scale(1.02); /* Phóng to nhẹ khi hover */
+}
+
+/* Tiêu đề */
+.banner-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Đổ bóng cho chữ */
+}
+
+/* Mô tả */
+.banner-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Nút CTA */
+.banner-cta {
+  display: inline-block;
+  background: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.banner-cta:hover {
+  background: #e64a19;
+  transform: translateY(-3px); /* Hiệu ứng nổi lên */
+}
+
+/* Nút điều hướng */
+.banner-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.banner-nav button {
+  /* background: rgba(255, 255, 255, 0.5); */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+}
+
+.banner-nav button:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.1); /* Hiệu ứng phóng khi hover */
+}
+/* Form tổng */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Input tìm kiếm */
+.search-input {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  color: #374151; /* Màu chữ xám đậm */
+  border: 2px solid #d1d5db; /* Màu viền xám nhạt */
+  border-radius: 6px; /* Góc vuông mềm */
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #3b82f6; /* Màu xanh lam */
+  background-color: #f3f4f6; /* Màu nền xám nhạt */
+}
+
+/* Nút tìm kiếm */
+.search-button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: #3b82f6; /* Màu xanh lam */
+  border: 2px solid #3b82f6; /* Viền xanh lam */
+  border-radius: 6px; /* Góc vuông mềm */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+  background: #2563eb; /* Xanh đậm hơn khi hover */
+  transform: translateY(-2px); /* Nâng nút nhẹ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}
+
+.search-button:active {
+  transform: translateY(0); /* Quay lại vị trí ban đầu */
+  box-shadow: none;
+}
+/* Phần chứa */
+.focus-section {
+  padding: 50px 20px;
+  background: linear-gradient(
+    to bottom,
+    #f3f4f6,
+    #e5e7eb
+  ); /* Nền gradient nhạt */
+  text-align: center;
+}
+
+/* Container chính */
+.focus-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Ô tiêu điểm */
+.focus-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.focus-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon */
+.focus-icon {
+  font-size: 3rem;
+  color: #3b82f6; /* Xanh lam */
+  margin-bottom: 20px;
+  background: #eff6ff; /* Nền xanh nhạt */
+  padding: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.focus-box:hover .focus-icon {
+  color: white;
+  background: #2563eb; /* Xanh lam đậm */
+}
+
+/* Tiêu đề */
+.focus-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #374151; /* Xám đậm */
+}
+
+/* Mô tả */
+.focus-description {
+  font-size: 1rem;
+  color: #6b7280; /* Xám nhạt */
+  line-height: 1.5;
+}
+.item a {
+  width: 100%;
+  text-align: center;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+  color: #007bff; /* Màu chữ mặc định cho liên kết */
+  font-size: 1rem; /* Kích thước chữ */
+  font-weight: 500; /* Độ đậm của chữ */
+  padding: 10px 15px; /* Khoảng cách giữa chữ và các cạnh của thẻ */
+  border-radius: 5px; /* Bo góc cho liên kết */
+  display: inline-block; /* Đảm bảo thẻ a có thể bao quanh text */
+  transition: all 0.3s ease; /* Hiệu ứng mượt mà khi thay đổi trạng thái */
+}
+
+.item a:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+.item a:active {
+  transform: scale(0.98); /* Thu nhỏ một chút khi click vào */
+}
+
+.item a:focus {
+  outline: none; /* Loại bỏ outline khi focus */
+  border: 2px solid #0056b3; /* Thêm viền khi focus */
+}
+.logo_icon {
+  width: 70px;
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input,
+  .search-button {
+    width: 100%; /* Chiều rộng đầy đủ khi ở chế độ dọc */
+  }
+  .focus-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .focus-box {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,327 @@
+\phulucchapter{CÂU HỎI KHẢO SÁT ĐỀ XUẤT}
+
+\begin{itemize}
+
+    \item Anh/chị thường tập luyện trong khoảng thời gian nào trong ngày?
+
+    \item Anh/chị gặp khó khăn gì khi tự tập luyện tại nhà?
+
+    \item Anh/chị có sẵn sàng cung cấp cân nặng, chiều cao và mục tiêu tập luyện để nhận gợi ý không?
+
+    \item Anh/chị có thiết bị hỗ trợ nào như tạ tay, dây kháng lực hoặc thảm tập không?
+
+    \item Anh/chị muốn hệ thống gợi ý bài tập theo mục tiêu, nhóm cơ hay thời gian?
+
+    \item Anh/chị có cần chức năng lưu lịch tập theo ngày không?
+
+    \item Anh/chị muốn xem thống kê theo tuần, tháng hay từng bài tập?
+
+    \item Anh/chị có cần chatbot hướng dẫn cách dùng website hoặc giải thích bài tập không?
+
+    \item Anh/chị quan tâm nhất đến yếu tố nào: dễ dùng, cá nhân hóa, bài tập đa dạng hay thống kê?
+
+    \item Anh/chị mong muốn website cải thiện thêm chức năng nào trong tương lai?
+
+\end{itemize}
+
+\phulucchapter{MẪU DỮ LIỆU BÀI TẬP SAU CHUẨN HÓA}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Trường dữ liệu bài tập mẫu}\\
+\hline
+\textbf{Trường} & \textbf{Kiểu dữ liệu} & \textbf{Mô tả} \\
+\hline
+\endfirsthead
+\caption[]{Trường dữ liệu bài tập mẫu (tiếp theo)}\\
+\hline
+\textbf{Trường} & \textbf{Kiểu dữ liệu} & \textbf{Mô tả} \\
+\hline
+\endhead
+id & String & Mã định danh bài tập. \\
+\hline
+name & String & Tên bài tập. \\
+\hline
+target & String & Nhóm cơ chính. \\
+\hline
+secondaryMuscles & Array<String> & Danh sách nhóm cơ phụ. \\
+\hline
+bodyPart & String & Bộ phận cơ thể liên quan. \\
+\hline
+equipment & String & Thiết bị cần sử dụng. \\
+\hline
+gifUrl & String & Đường dẫn ảnh động hoặc hình minh họa. \\
+\hline
+difficulty & String & easy, medium hoặc hard. \\
+\hline
+time & Number & Thời lượng ước lượng theo phút. \\
+\hline
+intensity & String & low, moderate hoặc high. \\
+\hline
+healthConditions & Array<String> & Nhóm sức khỏe phù hợp. \\
+\hline
+instructions & Array<String> & Các bước hướng dẫn thực hiện. \\
+\hline
+\end{longtable}
+\endgroup
+
+\phulucchapter{CHECKLIST NGHIỆM THU CHỨC NĂNG}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Checklist nghiệm thu}\\
+\hline
+\textbf{Nhóm} & \textbf{Mục kiểm tra} & \textbf{Kết quả} \\
+\hline
+\endfirsthead
+\caption[]{Checklist nghiệm thu (tiếp theo)}\\
+\hline
+\textbf{Nhóm} & \textbf{Mục kiểm tra} & \textbf{Kết quả} \\
+\hline
+\endhead
+Auth & Đăng nhập thành công và tạo session. & Đạt \\
+\hline
+User & Tạo mới User khi tài khoản chưa tồn tại. & Đạt \\
+\hline
+Health & Lưu/cập nhật hồ sơ sức khỏe. & Đạt \\
+\hline
+Exercise & Tìm kiếm và phân trang danh sách bài tập. & Đạt \\
+\hline
+Recommendation & Lọc bài tập theo hồ sơ sức khỏe. & Đạt \\
+\hline
+Plan & Lưu kế hoạch và hiển thị theo ngày. & Đạt \\
+\hline
+Progress & Lưu thời gian tập và trạng thái hoàn thành. & Đạt \\
+\hline
+Stats & Tạo biểu đồ và phản hồi cá nhân hóa. & Đạt \\
+\hline
+Admin & Quản lý người dùng và bài tập. & Đạt \\
+\hline
+Chatbot & Hiển thị cửa sổ chatbot trên website. & Đạt \\
+\hline
+\end{longtable}
+\endgroup
+
+\phulucchapter{GIẢ MÃ THUẬT TOÁN GỢI Ý BÀI TẬP}
+
+\begin{itemize}
+
+    \item Input: userHealthStatus gồm targetMuscleGroups, equipmentPreference, intensityPreference, condition.
+
+    \item Bước 1: Đọc hồ sơ sức khỏe của người dùng từ cơ sở dữ liệu.
+
+    \item Bước 2: Tạo danh sách điều kiện lọc. Điều kiện rỗng sẽ bị loại bỏ.
+
+    \item Bước 3: Truy vấn bảng Exercise với AND các điều kiện còn lại.
+
+    \item Bước 4: Xóa danh sách Workout cũ của người dùng để tránh dữ liệu lỗi thời.
+
+    \item Bước 5: Tạo bản ghi Workout mới cho từng bài tập được đề xuất.
+
+    \item Output: danh sách bài tập phù hợp để hiển thị trên giao diện.
+
+\end{itemize}
+
+\phulucchapter{MA TRẬN MÃ NGUỒN VÀ CHỨC NĂNG}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Ma trận mã nguồn trọng tâm}\\
+\hline
+\textbf{Nhóm} & \textbf{File} & \textbf{Nội dung cần bảo trì} \\
+\hline
+\endfirsthead
+\caption[]{Ma trận mã nguồn trọng tâm (tiếp theo)}\\
+\hline
+\textbf{Nhóm} & \textbf{File} & \textbf{Nội dung cần bảo trì} \\
+\hline
+\endhead
+Nền tảng & root.jsx & Layout, provider, chatbot, script dịch ngôn ngữ. \\
+\hline
+Xác thực & auth.server.js & Cookie session, Authenticator, Auth0Strategy. \\
+\hline
+Dữ liệu & db.server.js & PrismaClient và kết nối cơ sở dữ liệu. \\
+\hline
+Trang chủ & home.jsx & Tìm kiếm, phân trang, hiển thị bài tập. \\
+\hline
+Hồ sơ & HealthStatus.jsx & Form sức khỏe, chọn thiết bị, chọn nhóm cơ. \\
+\hline
+Hồ sơ API & healthstatusapi.jsx & Create/update HealthStatus. \\
+\hline
+Gợi ý & Recommended.workout.jsx & Lọc bài tập theo hồ sơ. \\
+\hline
+Kế hoạch & WorkoutPlan.jsx, Workout.jsx & Lập và xem lịch tập. \\
+\hline
+Tiến trình & userprogressapi.jsx & Lưu trạng thái và thời gian tập. \\
+\hline
+Thống kê & Stats.jsx & Đánh giá tuần/tháng, biểu đồ, phản hồi. \\
+\hline
+Quản trị & admin.jsx & Dashboard, quản lý user và bài tập. \\
+\hline
+Chatbot & chatbotapi2.jsx & Nhúng chatbot và tùy biến giao diện. \\
+\hline
+\end{longtable}
+\endgroup
+
+\phulucchapter{KỊCH BẢN KIỂM THỬ CHI TIẾT}
+
+Phụ lục này mở rộng phần kiểm thử bằng cách mô tả rõ hơn dữ liệu đầu vào và tiêu chí quan sát. Các ca kiểm thử được xây dựng theo luồng người dùng thực tế, từ xác thực đến cập nhật hồ sơ, nhận gợi ý, lập kế hoạch, lưu tiến trình và quản trị dữ liệu. Khi triển khai lại trên môi trường khác, người kiểm thử có thể dùng bảng này như checklist nghiệm thu tối thiểu.
+
+
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.160\textwidth}|P{0.280\textwidth}|P{0.280\textwidth}|P{0.200\textwidth}|}
+\caption{Kịch bản kiểm thử chi tiết theo luồng người dùng}\\
+\hline
+\textbf{Mã ca} & \textbf{Điều kiện đầu vào} & \textbf{Thao tác kiểm thử} & \textbf{Kết quả cần quan sát} \\
+\hline
+\endfirsthead
+\caption[]{Kịch bản kiểm thử chi tiết theo luồng người dùng (tiếp theo)}\\
+\hline
+\textbf{Mã ca} & \textbf{Điều kiện đầu vào} & \textbf{Thao tác kiểm thử} & \textbf{Kết quả cần quan sát} \\
+\hline
+\endhead
+AUTH-01 & Chưa đăng nhập & Mở trang cần xác thực & Hệ thống yêu cầu đăng nhập hoặc trả lỗi 401. \\
+\hline
+AUTH-02 & Tài khoản Auth0 hợp lệ & Đăng nhập và quay về callback & User được tạo nếu chưa tồn tại, session có userId. \\
+\hline
+AUTH-03 & Tài khoản thường & Truy cập /admin & Bị chuyển sang trang 404 hoặc bị từ chối quyền. \\
+\hline
+HEALTH-01 & Đã đăng nhập & Nhập đủ hồ sơ sức khỏe và lưu & Bản ghi HealthStatus được tạo mới. \\
+\hline
+HEALTH-02 & Đã có HealthStatus & Thay đổi mục tiêu, cường độ và lưu & Bản ghi cũ được cập nhật, không tạo trùng. \\
+\hline
+HEALTH-03 & Chọn cường độ moderate & Gọi equipmentapi & Danh sách thiết bị phù hợp được trả về. \\
+\hline
+HEALTH-04 & Đã chọn thiết bị & Gọi musclesapi & Danh sách nhóm cơ phù hợp với thiết bị và cường độ. \\
+\hline
+EXERCISE-01 & Có dữ liệu Exercise & Tìm kiếm theo tên bài tập & Danh sách lọc theo từ khóa, không lỗi khi rỗng. \\
+\hline
+EXERCISE-02 & Chọn bài tập bất kỳ & Mở trang chi tiết & Thông tin target, equipment, gifUrl, instructions hiển thị. \\
+\hline
+REC-01 & Có HealthStatus hợp lệ & Mở Recommended workout & Danh sách gợi ý đúng cường độ, thiết bị, nhóm cơ. \\
+\hline
+REC-02 & Thay đổi hồ sơ & Mở lại Recommended workout & Workout cũ bị xóa và danh sách mới được tạo. \\
+\hline
+PLAN-01 & Chọn nhiều bài tập & Lưu kế hoạch qua Workoutplanapi & Mỗi bài tạo một bản ghi WorkoutPlan. \\
+\hline
+PLAN-02 & Có kế hoạch đã lưu & Mở Workout & Các bài được nhóm theo ngày hoặc hiển thị đúng thông số. \\
+\hline
+PLAN-03 & Có bài trong kế hoạch & Sửa time, sets, reps & Dữ liệu được cập nhật qua editworkoutapi. \\
+\hline
+PLAN-04 & Có bài trong kế hoạch & Xóa bài tập khỏi lịch & Bản ghi WorkoutPlan bị xóa qua deleteapi. \\
+\hline
+PROG-01 & Đang ở ExerciseDetail & Bấm Start, Pause, Save & Thời gian tập được gửi đến userprogressapi. \\
+\hline
+PROG-02 & Bài tập đã có progress & Lưu lại bài đó & Bản ghi UserProgress được update thay vì tạo trùng. \\
+\hline
+STAT-01 & Có dữ liệu tiến trình & Mở Stats & Biểu đồ, chỉ số và feedback được hiển thị. \\
+\hline
+ADMIN-01 & Tài khoản admin & Mở tab User Management & Danh sách user hiển thị, sửa/xóa hoạt động. \\
+\hline
+ADMIN-02 & Tài khoản admin & Thêm/sửa/xóa Exercise & Dữ liệu bài tập thay đổi và không làm lỗi gợi ý. \\
+\hline
+\end{longtable}
+\endgroup
+
+\phulucchapter{QUY TẮC RÀ SOÁT MÃ NGUỒN TRƯỚC KHI TRIỂN KHAI}
+
+Khi chuyển từ môi trường làm đồ án sang môi trường triển khai thật, mã nguồn cần được rà soát theo các nhóm sau. Nội dung này được bổ sung để báo cáo thể hiện rõ tính thực tế của quá trình phát triển phần mềm, đồng thời tránh đưa các cấu hình thử nghiệm vào môi trường vận hành.
+
+
+\section{Rà soát cấu hình và biến môi trường}
+
+\begin{itemize}
+
+    \item Toàn bộ domain Auth0, client id, client secret, callback URL, logout URL và session secret phải lấy từ biến môi trường thay vì ghi cố định trong file mã nguồn.
+
+    \item Các token chatbot, khóa RapidAPI hoặc khóa dịch vụ ngoài cần được đặt ở server/secret manager. Giao diện chỉ gọi backend nội bộ, không tự mang khóa bí mật.
+
+    \item Cấu hình callback cần tách rõ localhost, staging và production để tránh lỗi đăng nhập sau khi deploy.
+
+    \item File .env thật không được nộp kèm báo cáo hoặc đưa lên kho Git công khai. Nếu cần minh họa, chỉ dùng .env.example với giá trị giả.
+
+\end{itemize}
+
+\section{Rà soát quyền truy cập}
+
+\begin{itemize}
+
+    \item Mỗi action có tác động dữ liệu như create\_exercise, update\_exercise, delete\_exercise, update\_user và delete\_user nên kiểm tra lại quyền admin ở phía server.
+
+    \item Các route người dùng như healthstatusapi, Workoutplanapi và userprogressapi cần luôn lấy userId từ session, không tin vào userId gửi từ form.
+
+    \item Khi xóa user, cần cân nhắc xóa hoặc vô hiệu hóa dữ liệu liên quan như HealthStatus, WorkoutPlan và UserProgress để tránh bản ghi mồ côi.
+
+    \item Khi sửa dữ liệu bài tập, cần kiểm tra định dạng mảng secondaryMuscles, healthConditions và instructions trước khi lưu.
+
+\end{itemize}
+
+\section{Rà soát dữ liệu và trải nghiệm}
+
+\begin{itemize}
+
+    \item Thêm thông báo rõ ràng khi chưa có hồ sơ sức khỏe nhưng người dùng mở trang gợi ý.
+
+    \item Kiểm tra ảnh gifUrl không hỏng trước khi lưu bài tập mới.
+
+    \item Thêm trạng thái loading cho các thao tác cần chờ như lưu hồ sơ, tạo kế hoạch, tải video và gọi chatbot.
+
+    \item Đồng bộ cách dùng chữ hoa/thường cho model Prisma như Exercise/exercise hoặc User/user để tránh lỗi khi chuyển môi trường.
+
+    \item Chuẩn hóa route có dấu chấm như Recommended.workout.jsx để bảo đảm đường dẫn đúng mong muốn của Remix.
+
+\end{itemize}
+
+\phulucchapter{PHÂN TÍCH CÁC ĐIỂM CẦN HOÀN THIỆN TỪ MÃ NGUỒN}
+
+Phụ lục này không nhằm phê bình sản phẩm mà dùng để chứng minh quá trình đọc và đối chiếu mã nguồn. Một báo cáo đồ án tốt nên chỉ ra được phần đã làm, phần còn hạn chế và phương án hoàn thiện. Các nhận xét dưới đây được trình bày theo hướng kỹ thuật, tránh nêu thông tin nhạy cảm như khóa API hoặc token thật.
+
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Điểm cần hoàn thiện và phương án đề xuất}\\
+\hline
+\textbf{Nhóm} & \textbf{Hiện trạng quan sát} & \textbf{Đề xuất hoàn thiện} \\
+\hline
+\endfirsthead
+\caption[]{Điểm cần hoàn thiện và phương án đề xuất (tiếp theo)}\\
+\hline
+\textbf{Nhóm} & \textbf{Hiện trạng quan sát} & \textbf{Đề xuất hoàn thiện} \\
+\hline
+\endhead
+Xác thực & Một số callback/redirect đang dùng địa chỉ localhost. & Tách URL theo biến môi trường AUTH0\_CALLBACK\_URL, AUTH0\_RETURN\_TO\_URL. \\
+\hline
+Đăng xuất & auth.logout.jsx có đoạn tham chiếu biến Auth0 domain/clientId/returnTo cần cấu hình đầy đủ. & Đọc biến từ process.env và kiểm thử logout Auth0 end-to-end. \\
+\hline
+Bảo mật secret & Một số khóa hoặc token thử nghiệm xuất hiện trong code tích hợp ngoài. & Đưa vào .env, không đưa vào repo, tạo .env.example để minh họa. \\
+\hline
+Phân quyền admin & Trang admin có kiểm tra quyền ở loader, nhưng các action CRUD nên kiểm tra lại. & Viết hàm requireAdmin(request) dùng chung cho action quản trị. \\
+\hline
+Dữ liệu bài tập & Các trường mảng được nhập dưới dạng chuỗi rồi split bằng dấu phẩy. & Thêm hướng dẫn nhập, validate rỗng và trim dữ liệu trước khi lưu. \\
+\hline
+Gợi ý bài tập & Điều kiện lọc đang dựa trên target, equipment, intensity và condition. & Bổ sung thứ tự ưu tiên theo mục tiêu fitnessGoals và available\_time. \\
+\hline
+Thống kê & Feedback đã có nhưng còn phụ thuộc dữ liệu UserProgress. & Thêm thông báo khi dữ liệu chưa đủ, thêm chỉ số streak hoặc số ngày duy trì. \\
+\hline
+Chatbot & Chatbot nhúng thuận tiện nhưng backend chưa kiểm soát sâu câu trả lời. & Tạo lớp API nội bộ nếu cần lưu log, giới hạn nội dung và quản lý nguồn tri thức. \\
+\hline
+Video liên quan & Trang chi tiết gọi API video ngoài. & Ẩn khóa, thêm fallback khi API lỗi hoặc không có video. \\
+\hline
+Kiểm thử & Chủ yếu kiểm thử thủ công. & Bổ sung unit test cho hàm tính difficulty, time, intensity, healthConditions. \\
+\hline
+\end{longtable}
+\endgroup
+
+Những điểm trên cũng là hướng phát triển hợp lý sau khi hoàn thành phiên bản đồ án. Nếu được bổ sung, hệ thống sẽ an toàn hơn khi deploy, dễ bảo trì hơn khi mở rộng dữ liệu và có khả năng đánh giá chất lượng cá nhân hóa tốt hơn.
+

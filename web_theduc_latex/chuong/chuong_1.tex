@@ -1,0 +1,134 @@
+\chapter{CƠ SỞ LÝ THUYẾT}
+
+\section{Khái quát về website tập luyện cá nhân hóa}
+
+Website tập luyện cá nhân hóa là hệ thống web cho phép người dùng nhận nội dung luyện tập dựa trên dữ liệu cá nhân thay vì chỉ xem một thư viện bài tập chung. Trong đề tài, dữ liệu đầu vào gồm thể trạng, mục tiêu, nhóm cơ mong muốn, thiết bị có sẵn, cường độ ưa thích và thời gian tập luyện. Những dữ liệu này được dùng để lọc bài tập và hỗ trợ lập kế hoạch tập phù hợp hơn với từng người.
+
+
+Khác với website giới thiệu bài tập tĩnh, hệ thống cá nhân hóa cần duy trì mối liên hệ giữa hồ sơ người dùng, bài tập, lịch tập và tiến trình đã thực hiện. Nếu một người dùng thay đổi mục tiêu từ giảm mỡ sang tăng cơ hoặc cập nhật lại tình trạng sức khỏe, kết quả gợi ý cũng cần được tính lại. Vì vậy, hệ thống không chỉ cần giao diện đẹp mà còn cần mô hình dữ liệu và luồng xử lý rõ ràng.
+
+
+Trong phạm vi đồ án, cá nhân hóa được hiểu theo hướng dựa trên luật và bộ lọc dữ liệu. Hệ thống chưa sử dụng mô hình học máy để dự đoán phức tạp, nhưng cách tiếp cận này có ưu điểm là dễ giải thích, dễ kiểm thử và phù hợp với sản phẩm thử nghiệm.
+
+
+\section{Dữ liệu sức khỏe và dữ liệu bài tập}
+
+\subsection{Dữ liệu sức khỏe của người dùng}
+
+Dữ liệu sức khỏe là nhóm thông tin do người dùng cung cấp để hệ thống xác định điều kiện lọc bài tập. Trong mã nguồn, biểu mẫu sức khỏe ghi nhận cân nặng, chiều cao, tình trạng sức khỏe, tuổi, mục tiêu tập luyện, cường độ mong muốn, thiết bị có thể sử dụng, nhóm cơ mục tiêu và thời gian rảnh. Các trường này được lưu hoặc cập nhật thông qua route xử lý healthstatusapi.
+
+
+Việc lưu hồ sơ sức khỏe có hai vai trò. Thứ nhất, nó giúp website không yêu cầu người dùng nhập lại thông tin ở mỗi lần mở trang gợi ý. Thứ hai, nó tạo dữ liệu nền để các route như Recommended.workout.jsx, equipmentapi.jsx và musclesapi.jsx có thể lọc danh sách thiết bị, nhóm cơ và bài tập phù hợp.
+
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Nhóm dữ liệu sức khỏe và vai trò trong hệ thống}\\
+\hline
+\textbf{Nhóm dữ liệu} & \textbf{Trường tiêu biểu} & \textbf{Vai trò xử lý} \\
+\hline
+\endfirsthead
+\caption[]{Nhóm dữ liệu sức khỏe và vai trò trong hệ thống (tiếp theo)}\\
+\hline
+\textbf{Nhóm dữ liệu} & \textbf{Trường tiêu biểu} & \textbf{Vai trò xử lý} \\
+\hline
+\endhead
+Chỉ số cơ bản & weight, height, age & Lưu hồ sơ thể trạng và phục vụ mở rộng đánh giá trong tương lai. \\
+\hline
+Mức sức khỏe & condition & Giới hạn cường độ bài tập có thể gợi ý. \\
+\hline
+Mục tiêu & fitnessGoals & Làm căn cứ định hướng nội dung luyện tập và phản hồi thống kê. \\
+\hline
+Cường độ & intensityPreference & Lọc bài tập theo low, moderate hoặc high. \\
+\hline
+Thiết bị & equipmentPreference & Chỉ hiển thị các bài tập dùng thiết bị người dùng có thể sử dụng. \\
+\hline
+Nhóm cơ & targetMuscleGroups & Ưu tiên các bài tập tác động vào nhóm cơ người dùng lựa chọn. \\
+\hline
+Thời gian & available\_time & Làm căn cứ để chọn thời lượng bài tập trong phần thống kê và gợi ý bổ sung. \\
+\hline
+\end{longtable}
+\endgroup
+
+\subsection{Dữ liệu bài tập}
+
+Dữ liệu bài tập là thành phần cốt lõi của website. Mỗi bài tập cần có tên, nhóm cơ chính, nhóm cơ phụ, bộ phận cơ thể, thiết bị, hình minh họa hoặc ảnh động, hướng dẫn thực hiện, độ khó, cường độ, thời lượng và nhóm sức khỏe phù hợp. Các trường này không chỉ phục vụ hiển thị mà còn là điều kiện truy vấn trong cơ chế đề xuất.
+
+
+Mã nguồn có các route phục vụ tạo, sửa, xóa và lưu bài tập như create\_exercise.jsx, update\_exercise.jsx, delete\_exercise.jsx và saveExercises.jsx. Điều này cho thấy dữ liệu bài tập không được xem là dữ liệu cố định, mà có thể được quản trị viên cập nhật khi cần bổ sung nội dung mới hoặc sửa thông tin không còn phù hợp.
+
+
+\section{Nguyên tắc gợi ý bài tập dựa trên luật}
+
+Gợi ý dựa trên luật là phương pháp sử dụng các điều kiện rõ ràng để chọn dữ liệu phù hợp. Với website tập luyện, các điều kiện có thể là cường độ, thiết bị, nhóm cơ, tình trạng sức khỏe và thời gian. Khi người dùng truy cập trang gợi ý, hệ thống đọc hồ sơ sức khỏe đã lưu, sau đó truy vấn danh sách bài tập thỏa mãn các điều kiện đó.
+
+
+Cách tiếp cận này có tính minh bạch cao. Nếu một bài tập không xuất hiện trong danh sách, người phát triển có thể kiểm tra điều kiện nào khiến bài tập bị loại: sai thiết bị, sai nhóm cơ, không phù hợp cường độ hoặc không nằm trong nhóm sức khỏe được phép. Đây là ưu điểm quan trọng khi giải thích sản phẩm trong đồ án.
+
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Ưu điểm và giới hạn của gợi ý dựa trên luật}\\
+\hline
+\textbf{Nội dung} & \textbf{Ưu điểm} & \textbf{Giới hạn} \\
+\hline
+\endfirsthead
+\caption[]{Ưu điểm và giới hạn của gợi ý dựa trên luật (tiếp theo)}\\
+\hline
+\textbf{Nội dung} & \textbf{Ưu điểm} & \textbf{Giới hạn} \\
+\hline
+\endhead
+Tính giải thích & Dễ chỉ ra điều kiện lọc và lý do bài tập được chọn. & Chưa tự học từ hành vi người dùng. \\
+\hline
+Độ phức tạp & Phù hợp với đồ án, dễ kiểm thử bằng dữ liệu mẫu. & Khi điều kiện tăng nhiều, logic lọc có thể khó bảo trì. \\
+\hline
+An toàn & Có thể đặt ngưỡng để hạn chế bài tập cường độ cao. & Vẫn phụ thuộc độ chính xác của dữ liệu người dùng nhập. \\
+\hline
+Mở rộng & Có thể thêm trường mới như mục tiêu hoặc thời gian. & Chưa cá nhân hóa sâu như mô hình khuyến nghị học máy. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Cơ sở về ứng dụng web full-stack}
+
+Ứng dụng web full-stack là mô hình trong đó cùng một project xử lý cả giao diện người dùng, định tuyến, truy vấn dữ liệu và các thao tác phía máy chủ. Đề tài sử dụng Remix, một framework JavaScript hỗ trợ route-based development, loader để nạp dữ liệu và action để xử lý dữ liệu gửi từ form hoặc request.
+
+
+Trong mã nguồn, mỗi file trong thư mục routes đại diện cho một màn hình hoặc một endpoint. Ví dụ, home.jsx hiển thị danh sách bài tập, HealthStatus.jsx hiển thị biểu mẫu hồ sơ sức khỏe, WorkoutPlan.jsx phục vụ tạo kế hoạch, Workout.jsx hiển thị lịch tập đã lưu, Stats.jsx tổng hợp tiến trình, còn các file api như healthstatusapi.jsx, Workoutplanapi.jsx, editworkoutapi.jsx và userprogressapi.jsx xử lý ghi dữ liệu.
+
+
+\section{Cơ sở dữ liệu quan hệ và Prisma ORM}
+
+Cơ sở dữ liệu quan hệ phù hợp với hệ thống vì các thực thể như User, Exercise, HealthStatus, Workout, WorkoutPlan và UserProgress có quan hệ rõ ràng với nhau. Mỗi người dùng có thể có một hồ sơ sức khỏe, nhiều bài tập gợi ý, nhiều kế hoạch tập và nhiều bản ghi tiến trình.
+
+
+Prisma ORM đóng vai trò trung gian giữa mã nguồn JavaScript và cơ sở dữ liệu. Thay vì viết truy vấn SQL trực tiếp trong từng route, mã nguồn sử dụng các thao tác như findUnique, findMany, create, update, delete và upsert. File db.server.js khởi tạo PrismaClient theo cơ chế singleton trong môi trường phát triển để tránh tạo quá nhiều kết nối.
+
+
+\section{Xác thực tài khoản và quản lý phiên}
+
+Hệ thống sử dụng Auth0 để xác thực người dùng. File auth.server.js cấu hình createCookieSessionStorage, Authenticator và Auth0Strategy. Sau khi đăng nhập thành công, website lấy thông tin hồ sơ Auth0, kiểm tra người dùng trong cơ sở dữ liệu và lưu userId vào session cookie để các chức năng khác có thể xác định chủ sở hữu dữ liệu.
+
+
+Việc lưu userId trong session giúp các API như healthstatusapi, Workoutplanapi và userprogressapi không cần tin vào dữ liệu userId gửi trực tiếp từ trình duyệt. Backend đọc userId từ cookie đã ký, qua đó giảm nguy cơ người dùng thao tác lên dữ liệu của người khác.
+
+
+\section{Chatbot hỗ trợ luyện tập}
+
+Chatbot trong đề tài đóng vai trò trợ lý trả lời câu hỏi cơ bản về bài tập và hướng dẫn sử dụng hệ thống. Mã nguồn có route chatbotapi2.jsx để nhúng chatbot Dify vào giao diện bằng script bên ngoài, đồng thời tùy biến kích thước và biểu tượng bong bóng chat bằng CSS động.
+
+
+Khi triển khai chatbot trong hệ thống sức khỏe, giới hạn nội dung là yêu cầu bắt buộc. Chatbot có thể giải thích cách dùng website, gợi ý người dùng xem hồ sơ sức khỏe hoặc mô tả cách thực hiện bài tập, nhưng không nên kết luận bệnh lý, thay thế bác sĩ hoặc đưa ra phác đồ điều trị. Báo cáo vì vậy chỉ mô tả chatbot ở vai trò hỗ trợ thông tin và trải nghiệm người dùng.
+
+
+\section{Nguyên tắc thiết kế giao diện và trải nghiệm}
+
+Giao diện của hệ thống cần ưu tiên sự rõ ràng. Người dùng phải dễ nhìn thấy các chức năng chính như cập nhật sức khỏe, xem bài tập, nhận gợi ý, lập kế hoạch, xem thống kê và đăng xuất. Các route chính đều sử dụng thanh điều hướng, avatar người dùng và menu chức năng để tạo cảm giác nhất quán.
+
+
+Các màn hình có nhiều dữ liệu như danh sách bài tập hoặc quản lý admin cần có phân trang, bảng hoặc thẻ nội dung để tránh quá tải thị giác. Trong mã nguồn, home.jsx và admin.jsx đều có logic phân trang, còn Stats.jsx sử dụng Recharts để trực quan hóa kết quả tập luyện.
+

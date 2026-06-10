@@ -1,0 +1,48 @@
+\chapter*{KẾT LUẬN}
+\addcontentsline{toc}{chapter}{KẾT LUẬN}
+
+\section*{Kết quả đạt được}
+
+\begin{itemize}
+
+    \item Đề tài đã xây dựng được website tập luyện cá nhân hóa với các chức năng chính: đăng nhập, quản lý hồ sơ sức khỏe, xem thư viện bài tập, nhận gợi ý, lập kế hoạch, xem lịch tập, ghi nhận tiến trình, thống kê, chatbot hỗ trợ và trang quản trị.
+
+    \item Mã nguồn thể hiện được đặc trưng của ứng dụng full-stack Remix: loader để nạp dữ liệu, action để xử lý form, Prisma để truy vấn cơ sở dữ liệu, Auth0 để xác thực và các component React để xây dựng giao diện.
+
+    \item Cơ chế gợi ý bài tập đã sử dụng được dữ liệu sức khỏe và thuộc tính bài tập, trong đó nhóm cơ, thiết bị, cường độ và tình trạng sức khỏe là các tiêu chí lọc chính. Trang thống kê đã có logic đánh giá theo tuần/tháng và sinh phản hồi cá nhân hóa ở mức tham khảo.
+
+    \item Báo cáo đã được trình bày lại theo hướng chi tiết hơn, tăng phần phân tích dựa trên mã nguồn thực tế, bổ sung ma trận route, tiêu chí kiểm thử, đánh giá bảo mật và hướng vận hành.
+
+\end{itemize}
+
+\section*{Hạn chế}
+
+\begin{itemize}
+
+    \item Cơ chế gợi ý vẫn là rule-based, chưa học từ lịch sử hành vi dài hạn hoặc phản hồi sau tập.
+
+    \item Một số cấu hình dịch vụ trong mã nguồn thử nghiệm cần được chuyển hoàn toàn sang biến môi trường trước khi triển khai thật.
+
+    \item Chatbot hiện chủ yếu ở dạng nhúng, chưa có pipeline kiểm soát câu trả lời riêng trong backend của hệ thống.
+
+    \item Phần kiểm thử chủ yếu là kiểm thử thủ công theo luồng chức năng, chưa có bộ test tự động hoặc kiểm thử tải đầy đủ.
+
+    \item Giao diện đã có responsive ở một số khu vực nhưng cần tiếp tục rà soát trên nhiều kích thước màn hình.
+
+\end{itemize}
+
+\section*{Hướng phát triển}
+
+\begin{itemize}
+
+    \item Bổ sung thuật toán khuyến nghị nâng cao dựa trên lịch sử tập luyện, mức độ hoàn thành, phản hồi sau bài tập và mục tiêu dài hạn.
+
+    \item Tách chatbot thành một backend API có kiểm soát dữ liệu, log và giới hạn nội dung rõ ràng hơn.
+
+    \item Tích hợp thiết bị đeo thông minh hoặc nguồn dữ liệu sức khỏe bên ngoài nếu có điều kiện triển khai thực tế.
+
+    \item Bổ sung thông báo nhắc lịch tập, lịch tuần/tháng, đánh giá xu hướng và đề xuất phục hồi sau buổi tập.
+
+    \item Tăng cường bảo mật bằng kiểm tra quyền ở tất cả action quản trị, ẩn secret, ghi log thao tác admin và chuẩn hóa quy trình backup dữ liệu.
+
+\end{itemize}

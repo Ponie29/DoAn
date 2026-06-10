@@ -1,0 +1,300 @@
+% !TeX program = xelatex
+\documentclass[a4paper,12pt,oneside]{report}
+
+% Vietnamese + font setup
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Liberation Serif}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{vietnamese}
+
+\addto\captionsvietnamese{%
+	\renewcommand{\contentsname}{MỤC LỤC}%
+	\renewcommand{\figurename}{Hình}%
+	\renewcommand{\tablename}{Bảng}%
+	\renewcommand{\listfigurename}{DANH MỤC HÌNH ẢNH}%
+	\renewcommand{\listtablename}{DANH MỤC BẢNG}%
+	\renewcommand{\chaptername}{Chương}%
+}
+
+% Page and font size
+\usepackage[fontsize=13pt]{fontsize}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=2cm,headheight=16pt]{geometry}
+
+% Common packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{tai_nguyen/}{tai_nguyen/media/}}
+
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{float}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\usepackage{xurl}
+\usepackage{seqsplit}
+\usepackage{calc}
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage[skip=0pt, indent=30pt]{parskip}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks=false,
+	pdfborder={0 0 0},
+	linkcolor=black
+}
+
+% Paragraph and table style
+\onehalfspacing
+\justifying
+\sloppy
+\emergencystretch=3em
+
+\setlist[itemize]{
+	leftmargin=1.2cm,
+	itemsep=2pt,
+	topsep=2pt
+}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setlength{\tabcolsep}{4pt}
+\setlength{\extrarowheight}{3pt}
+\renewcommand{\arraystretch}{1.32}
+\renewcommand\theadfont{\bfseries}
+
+\AtBeginEnvironment{longtable}{
+	\fontsize{12pt}{15pt}\selectfont
+	\renewcommand{\arraystretch}{1.38}
+}
+
+% Caption style
+\captionsetup{
+	font={small,it},
+	labelfont=bf,
+	justification=centering,
+	labelsep=period,
+	aboveskip=8pt,
+	belowskip=8pt
+}
+
+\captionsetup[table]{
+	position=top,
+	skip=8pt
+}
+
+\captionsetup[figure]{
+	skip=8pt
+}
+
+% Numbering by chapter
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+% Header / footer: page number at bottom center
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\cfoot{\thepage}%
+	\renewcommand{\headrulewidth}{0pt}%
+	\renewcommand{\footrulewidth}{0pt}%
+}
+
+% =========================================================
+% HEADING FORMAT
+% Sửa tại đây để tiêu đề chương nằm trên cùng một dòng:
+% Chương 1. CƠ SỞ LÝ THUYẾT
+% =========================================================
+
+\titleformat{\chapter}[hang]
+{\fontsize{16pt}{19pt}\bfseries\centering}
+{Chương \thechapter.}
+{0.6em}
+{\MakeUppercase}
+
+\titleformat{name=\chapter,numberless}[block]
+{\fontsize{16pt}{19pt}\bfseries\centering}
+{}
+{0pt}
+{\MakeUppercase}
+
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+
+\titleformat{\section}
+{\fontsize{13pt}{15pt}\bfseries}
+{\thesection.}
+{0.5em}
+{}
+
+\titleformat{\subsection}
+{\fontsize{13pt}{15pt}\bfseries\itshape}
+{\thesubsection.}
+{0.5em}
+{}
+
+\titleformat{\subsubsection}
+{\fontsize{13pt}{15pt}\bfseries\itshape}
+{\thesubsubsection.}
+{0.5em}
+{}
+
+% =========================================================
+% TOC / LIST OF FIGURES / LIST OF TABLES FORMAT
+% =========================================================
+
+\renewcommand{\cftdotsep}{1}
+
+% Dot leaders in TOC
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
+% Dot leaders in lists
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+
+% TOC title style
+\renewcommand{\cfttoctitlefont}{\hfill\large\bfseries\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+% List of tables title style
+\renewcommand{\cftlottitlefont}{\hfill\large\bfseries\MakeUppercase}
+\renewcommand{\cftafterlottitle}{\hfill}
+
+% List of figures title style
+\renewcommand{\cftloftitlefont}{\hfill\large\bfseries\MakeUppercase}
+\renewcommand{\cftafterloftitle}{\hfill}
+
+\setlength{\cftbeforetoctitleskip}{0em}
+\setlength{\cftaftertoctitleskip}{2em}
+\setlength{\cftbeforelottitleskip}{0em}
+\setlength{\cftbeforeloftitleskip}{0em}
+
+% Chapter entries in TOC
+\renewcommand{\cftchappresnum}{CHƯƠNG~}
+\renewcommand{\cftchapaftersnum}{.\quad}
+\setlength{\cftchapnumwidth}{3.0cm}
+
+% Section entries in TOC
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+
+% Figure/table list prefixes
+\renewcommand{\cftfigpresnum}{Hình~}
+\renewcommand{\cfttabpresnum}{Bảng~}
+\renewcommand{\cftfigaftersnum}{.}
+\renewcommand{\cfttabaftersnum}{.}
+
+\cftsetindents{figure}{0em}{2.7cm}
+\cftsetindents{table}{0em}{2.7cm}
+
+% Robust paths in text
+\DeclareRobustCommand{\codepath}[1]{%
+	\begingroup
+	\ttfamily
+	\footnotesize
+	\nolinkurl{#1}
+	\endgroup
+}
+
+\DeclareRobustCommand{\codepathraw}[1]{\codepath{#1}}
+
+% Appendix helper
+\newcommand{\phulucchapter}[1]{%
+	\clearpage
+	\refstepcounter{chapter}%
+	\setcounter{section}{0}%
+	\setcounter{table}{0}%
+	\setcounter{figure}{0}%
+	\chapter*{PHỤ LỤC \thechapter. #1}%
+	\addcontentsline{toc}{section}{Phụ lục \thechapter. #1}%
+}
+
+\begin{document}
+	
+	% Disable page anchors for cover pages
+	\hypersetup{pageanchor=false}
+	
+	\input{bia/bia_ngoai}
+	\input{bia/bia_trong}
+	
+	\hypersetup{pageanchor=true}
+	
+	% Front matter uses roman page numbers
+	\pagenumbering{roman}
+	\setcounter{page}{1}
+	
+	\clearpage
+	\chapter*{LỜI CẢM ƠN}
+	\addcontentsline{toc}{chapter}{LỜI CẢM ƠN}
+	\input{chuong/loi_cam_on}
+	
+	\clearpage
+	\addcontentsline{toc}{chapter}{LỜI CAM ĐOAN}
+	\input{chuong/loi_cam_doan}
+	
+	\clearpage
+	\tableofcontents
+	
+	\clearpage
+	\listoffigures
+	
+	\clearpage
+	\listoftables
+	
+	\clearpage
+	\chapter*{DANH MỤC TỪ VIẾT TẮT}
+	\addcontentsline{toc}{chapter}{DANH MỤC TỪ VIẾT TẮT}
+	\input{chuong/viet_tat}
+	
+	% Main matter uses arabic page numbers
+	\clearpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	\input{chuong/mo_dau}
+	\input{chuong/chuong_1}
+	\input{chuong/chuong_2}
+	\input{chuong/chuong_3}
+	\input{chuong/chuong_4}
+	\input{chuong/ket_luan}
+	\input{chuong/tai_lieu_tham_khao}
+	
+	% Appendices
+	\clearpage
+	\addcontentsline{toc}{chapter}{PHỤ LỤC}
+	\appendix
+	\renewcommand{\chaptername}{Phụ lục}
+	\input{chuong/phu_luc}
+	
+	% Supervisor comments
+	\clearpage
+	\chapter*{NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN}
+	\addcontentsline{toc}{chapter}{NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN}
+	\input{chuong/nhan_xet_gvhd}
+	
+\end{document}

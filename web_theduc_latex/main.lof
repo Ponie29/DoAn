@@ -1,0 +1,52 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Luồng sử dụng tổng quan của website}}{14}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Kiến trúc logic của website tập luyện}}{15}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case tổng thể của hệ thống}}{17}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho nhóm xem bài tập}}{18}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho nhóm đề xuất bài tập}}{19}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho nhóm lập kế hoạch tập}}{19}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho nhóm thống kê tiến trình}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho nhóm chatbot}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho quản trị người dùng}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Use Case chi tiết cho quản trị bài tập}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý đăng nhập}}{22}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý đăng ký}}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi xem thư viện bài tập}}{23}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi đề xuất bài tập}}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi tạo kế hoạch tập}}{24}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi tổng hợp thống kê}}{24}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi người dùng hỏi chatbot}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi thêm người dùng}}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi cập nhật người dùng}}{26}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi xóa người dùng}}{26}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi thêm bài tập}}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi cập nhật bài tập}}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Trình tự xử lý khi xóa bài tập}}{28}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Mô hình lớp dữ liệu của hệ thống}}{29}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy trình thu nhận dữ liệu bài tập}}{34}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy tắc xác định độ khó bài tập}}{34}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy tắc ước lượng thời lượng bài tập}}{35}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy tắc phân loại cường độ vận động}}{36}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy tắc ánh xạ bài tập với nhóm sức khỏe}}{36}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Luồng tích hợp chatbot vào website}}{39}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Bộ dữ liệu câu hỏi dùng cho chatbot}}{40}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Bộ dữ liệu bài tập dùng cho chatbot}}{40}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quá trình nạp dữ liệu hỏi đáp cho chatbot}}{40}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quá trình nạp dữ liệu bài tập cho chatbot}}{41}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện đăng nhập tài khoản}}{42}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện tạo tài khoản mới}}{43}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện trang chủ sau khi đăng nhập}}{44}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Bố cục nội dung trang chủ và danh sách bài tập}}{44}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện cập nhật hồ sơ sức khỏe}}{45}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện danh sách bài tập đề xuất}}{45}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện lập kế hoạch tập luyện}}{46}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện lịch bài tập cá nhân}}{46}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện thống kê kết quả tập luyện}}{47}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện trao đổi với chatbot}}{48}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện tổng quan dành cho quản trị viên}}{49}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện quản lý tài khoản người dùng}}{49}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Giao diện quản lý dữ liệu bài tập}}{50}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces \xpg@aux {}{vietnamese}\ignorespaces Quy trình kiểm thử các luồng chức năng}}{51}{figure.caption.52}%

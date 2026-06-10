@@ -1,0 +1,211 @@
+\chapter{KHẢO SÁT VÀ PHÂN TÍCH HỆ THỐNG}
+
+\section{Phát biểu bài toán}
+
+Bài toán đặt ra là xây dựng một website giúp người dùng lựa chọn và quản lý hoạt động tập luyện theo hướng cá nhân hóa. Người dùng không chỉ cần xem danh sách bài tập, mà còn cần một quy trình đầy đủ: khai báo thể trạng, nhận bài tập phù hợp, đưa bài tập vào kế hoạch, thực hiện, lưu tiến trình và xem đánh giá sau một giai đoạn.
+
+
+Thực tế cho thấy nhiều người muốn tập tại nhà nhưng gặp ba khó khăn chính: không biết chọn bài tập nào, không duy trì lịch tập đều đặn và không có dữ liệu để đánh giá sự tiến bộ. Nếu chỉ đưa ra danh sách bài tập, hệ thống chưa tạo ra giá trị khác biệt. Vì vậy, sản phẩm cần kết hợp lọc dữ liệu, kế hoạch cá nhân, thống kê và chatbot trong một luồng sử dụng thống nhất.
+
+
+\section{Mục tiêu khảo sát}
+
+\begin{itemize}
+
+    \item Xác định nhóm người dùng có nhu cầu tập luyện tại nhà hoặc tập luyện không phụ thuộc phòng gym.
+
+    \item Làm rõ khó khăn của người dùng khi tự tìm bài tập và tự duy trì lịch tập.
+
+    \item Xác định mức độ cần thiết của hồ sơ sức khỏe, gợi ý bài tập, thống kê tiến trình và chatbot.
+
+    \item Làm căn cứ xây dựng Use Case, mô hình dữ liệu, luồng xử lý và kịch bản kiểm thử.
+
+    \item Tạo cơ sở để đánh giá phiên bản thử nghiệm theo nhu cầu thực tế thay vì chỉ dựa trên chức năng kỹ thuật.
+
+\end{itemize}
+
+\section{Tổng hợp kết quả khảo sát người dùng}
+
+Kết quả khảo sát được tổng hợp theo các nhóm vấn đề có ảnh hưởng trực tiếp đến thiết kế hệ thống. Báo cáo không sao chép nguyên văn câu trả lời khảo sát mà diễn giải lại thành các kết luận phân tích để phục vụ thiết kế phần mềm.
+
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Tổng hợp nhu cầu và tác động đến thiết kế}\\
+\hline
+\textbf{Nhóm khảo sát} & \textbf{Kết luận chính} & \textbf{Tác động đến hệ thống} \\
+\hline
+\endfirsthead
+\caption[]{Tổng hợp nhu cầu và tác động đến thiết kế (tiếp theo)}\\
+\hline
+\textbf{Nhóm khảo sát} & \textbf{Kết luận chính} & \textbf{Tác động đến hệ thống} \\
+\hline
+\endhead
+Người dùng mục tiêu & Người mới tập, người bận rộn và người muốn tập tại nhà là nhóm cần ưu tiên. & Giao diện cần đơn giản, thao tác nhanh và có gợi ý ban đầu. \\
+\hline
+Khó khăn phổ biến & Thiếu lộ trình, thiếu động lực, lo sai kỹ thuật và khó đánh giá tiến bộ. & Cần có kế hoạch tập, mô tả chi tiết, thống kê và chatbot. \\
+\hline
+Dữ liệu cá nhân & Người dùng có thể chia sẻ dữ liệu nếu mục đích rõ ràng. & Cần biểu mẫu sức khỏe và lưu dữ liệu theo tài khoản. \\
+\hline
+Thiết bị tập luyện & Thiết bị tại nhà thường đơn giản như thảm, dây kháng lực, tạ nhỏ hoặc không dụng cụ. & Cần lọc bài tập theo equipmentPreference. \\
+\hline
+Thời lượng tập & Khoảng 15 đến 30 phút là mức dễ duy trì với người bận rộn. & Cần trường available\_time và lọc bài theo thời gian. \\
+\hline
+Nhu cầu thống kê & Người dùng muốn biết số buổi, thời gian, xu hướng và phản hồi. & Cần route Stats.jsx và bảng userProgress. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Phân tích sản phẩm tương tự}
+
+Các nền tảng tập luyện hiện nay thường có thư viện bài tập, video hướng dẫn, phân loại theo mục tiêu và một số hình thức theo dõi tiến trình. Điểm mạnh của nhóm sản phẩm này là nội dung đa dạng và giao diện trực quan. Tuy nhiên, khi áp dụng vào đề tài đồ án, cần lựa chọn phạm vi vừa đủ để triển khai được bằng mã nguồn thực tế.
+
+
+Bài học rút ra là hệ thống cần ưu tiên ba yếu tố: dữ liệu bài tập phải có trường phân loại rõ ràng; hồ sơ người dùng phải đủ thông tin để cá nhân hóa; giao diện phải đưa người dùng đi theo luồng từ khai báo sức khỏe đến nhận gợi ý và lưu tiến trình.
+
+
+\section{Nhóm người dùng và tác nhân hệ thống}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Tác nhân và nhu cầu chính}\\
+\hline
+\textbf{Tác nhân} & \textbf{Nhu cầu chính} & \textbf{Chức năng liên quan} \\
+\hline
+\endfirsthead
+\caption[]{Tác nhân và nhu cầu chính (tiếp theo)}\\
+\hline
+\textbf{Tác nhân} & \textbf{Nhu cầu chính} & \textbf{Chức năng liên quan} \\
+\hline
+\endhead
+Người dùng mới & Cần hướng dẫn bắt đầu, bài tập an toàn và dễ hiểu. & HealthStatus, Recommended workout, ExerciseDetail, Chatbot. \\
+\hline
+Người dùng bận rộn & Cần bài tập ngắn, dễ lên lịch và dễ theo dõi. & WorkoutPlan, Workout, Stats. \\
+\hline
+Người dùng đã tập cơ bản & Cần thống kê, điều chỉnh kế hoạch và xem lịch sử. & Stats, Workout, ExerciseDetail. \\
+\hline
+Quản trị viên & Cần quản lý người dùng và dữ liệu bài tập. & Admin, create\_exercise, update\_exercise, delete\_exercise. \\
+\hline
+Dịch vụ ngoài & Cung cấp xác thực, chatbot và nội dung video liên quan. & Auth0, Dify/Coze, YouTube API/RapidAPI. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Yêu cầu chức năng}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Danh sách yêu cầu chức năng}\\
+\hline
+\textbf{Mã} & \textbf{Yêu cầu} & \textbf{Mô tả triển khai} \\
+\hline
+\endfirsthead
+\caption[]{Danh sách yêu cầu chức năng (tiếp theo)}\\
+\hline
+\textbf{Mã} & \textbf{Yêu cầu} & \textbf{Mô tả triển khai} \\
+\hline
+\endhead
+FR-01 & Đăng nhập và tạo phiên & Người dùng xác thực qua Auth0, hệ thống tạo hoặc cập nhật bản ghi User và lưu userId vào session. \\
+\hline
+FR-02 & Quản lý hồ sơ sức khỏe & Người dùng nhập cân nặng, chiều cao, tuổi, tình trạng sức khỏe, mục tiêu, cường độ, thiết bị, nhóm cơ và thời gian. \\
+\hline
+FR-03 & Xem thư viện bài tập & Danh sách bài tập được lấy từ cơ sở dữ liệu, hỗ trợ tìm kiếm theo tên và phân trang. \\
+\hline
+FR-04 & Gợi ý bài tập & Hệ thống lọc bài tập theo hồ sơ sức khỏe, thiết bị, nhóm cơ, cường độ và tình trạng sức khỏe. \\
+\hline
+FR-05 & Lập kế hoạch tập & Người dùng chọn bài tập, nhập ngày, thời gian, số hiệp và số lần lặp để lưu vào WorkoutPlan. \\
+\hline
+FR-06 & Theo dõi tiến trình & Người dùng lưu trạng thái hoàn thành, thời gian tập và xem đánh giá trong trang Stats. \\
+\hline
+FR-07 & Chatbot hỗ trợ & Chatbot được nhúng vào giao diện để hỗ trợ hỏi đáp và hướng dẫn nhanh. \\
+\hline
+FR-08 & Quản trị người dùng & Admin xem danh sách người dùng, sửa thông tin, cấp quyền hoặc xóa tài khoản. \\
+\hline
+FR-09 & Quản trị bài tập & Admin thêm, sửa, xóa bài tập và cập nhật thuộc tính phục vụ gợi ý. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Yêu cầu phi chức năng}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Yêu cầu phi chức năng và tiêu chí chấp nhận}\\
+\hline
+\textbf{Mã} & \textbf{Nhóm yêu cầu} & \textbf{Tiêu chí chấp nhận} \\
+\hline
+\endfirsthead
+\caption[]{Yêu cầu phi chức năng và tiêu chí chấp nhận (tiếp theo)}\\
+\hline
+\textbf{Mã} & \textbf{Nhóm yêu cầu} & \textbf{Tiêu chí chấp nhận} \\
+\hline
+\endhead
+NFR-01 & Hiệu năng & Các trang chính tải được trong thời gian chấp nhận được trên môi trường thử nghiệm; truy vấn danh sách bài tập có phân trang. \\
+\hline
+NFR-02 & Bảo mật & Các route cần đăng nhập phải kiểm tra Auth0/session; chức năng admin cần kiểm tra quyền isAdmin. \\
+\hline
+NFR-03 & Dễ sử dụng & Luồng thao tác chính không yêu cầu nhập lại dữ liệu nhiều lần; các nút Save, Delete, Update có phản hồi. \\
+\hline
+NFR-04 & Tính nhất quán & Menu, navbar, avatar, thẻ bài tập và biểu mẫu dùng cách trình bày thống nhất. \\
+\hline
+NFR-05 & Khả năng mở rộng & Có thể thêm route mới, thêm trường dữ liệu bài tập và bổ sung tiêu chí lọc mà không thay đổi toàn bộ hệ thống. \\
+\hline
+NFR-06 & An toàn dữ liệu & Không đưa khóa dịch vụ, token hoặc secret vào phần báo cáo công khai; cấu hình nên đặt ở biến môi trường. \\
+\hline
+\end{longtable}
+\endgroup
+
+\section{Phân tích rủi ro yêu cầu}
+
+\begin{itemize}
+
+    \item Rủi ro dữ liệu sức khỏe không chính xác: người dùng có thể nhập sai cân nặng, chiều cao hoặc tình trạng sức khỏe. Hệ thống cần có kiểm tra dữ liệu đầu vào và cho phép người dùng cập nhật lại hồ sơ.
+
+    \item Rủi ro dữ liệu bài tập thiếu đồng nhất: một số bài tập có thể thiếu thiết bị, nhóm cơ hoặc hướng dẫn. Trước khi lưu vào cơ sở dữ liệu, route xử lý dữ liệu cần bổ sung các trường như difficulty, time, intensity và healthConditions.
+
+    \item Rủi ro lộ cấu hình: trong mã nguồn phát triển có các token hoặc khóa API dùng thử. Khi hoàn thiện sản phẩm, các giá trị này phải chuyển vào biến môi trường, không đưa vào báo cáo hoặc kho mã nguồn công khai.
+
+    \item Rủi ro chatbot trả lời vượt phạm vi: chatbot chỉ nên cung cấp hướng dẫn tham khảo về tập luyện, không thay thế chẩn đoán chuyên môn hoặc lời khuyên y khoa cá nhân hóa sâu.
+
+\end{itemize}
+
+\section{Ma trận truy vết yêu cầu}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|P{0.220\textwidth}|P{0.330\textwidth}|P{0.370\textwidth}|}
+\caption{Ma trận truy vết giữa nhu cầu và chức năng}\\
+\hline
+\textbf{Nhu cầu} & \textbf{Chức năng đáp ứng} & \textbf{Minh chứng trong mã nguồn} \\
+\hline
+\endfirsthead
+\caption[]{Ma trận truy vết giữa nhu cầu và chức năng (tiếp theo)}\\
+\hline
+\textbf{Nhu cầu} & \textbf{Chức năng đáp ứng} & \textbf{Minh chứng trong mã nguồn} \\
+\hline
+\endhead
+Cần đăng nhập và lưu dữ liệu cá nhân & Auth0, session, User & auth.server.js, auth.auth0.jsx, homeCallback.jsx, login.jsx \\
+\hline
+Cần khai báo thể trạng & Hồ sơ sức khỏe & HealthStatus.jsx, healthstatusapi.jsx \\
+\hline
+Cần lọc bài theo dữ liệu cá nhân & Gợi ý bài tập & Recommended.workout.jsx, equipmentapi.jsx, musclesapi.jsx \\
+\hline
+Cần tự lập kế hoạch & Kế hoạch tập luyện & WorkoutPlan.jsx, Workoutplanapi.jsx, Workout.jsx \\
+\hline
+Cần ghi nhận hoàn thành bài tập & Tiến trình tập & ExerciseDetail.jsx, userprogressapi.jsx \\
+\hline
+Cần xem đánh giá tiến bộ & Thống kê & Stats.jsx, Recharts \\
+\hline
+Cần quản lý dữ liệu & Admin CRUD & admin.jsx, create\_exercise.jsx, update\_exercise.jsx, delete\_exercise.jsx \\
+\hline
+\end{longtable}
+\endgroup

@@ -1,0 +1,77 @@
+\xpg@aux {}{vietnamese}
+\contentsline {chapter}{LỜI CẢM ƠN}{i}{chapter*.1}%
+\contentsline {chapter}{LỜI CAM ĐOAN}{ii}{chapter*.1}%
+\contentsline {chapter}{DANH MỤC TỪ VIẾT TẮT}{ix}{chapter*.2}%
+\contentsline {chapter}{LỜI NÓI ĐẦU}{1}{chapter*.3}%
+\contentsline {section}{1. Sự cần thiết của đề tài}{1}{section*.4}%
+\contentsline {section}{2. Mục tiêu và nhiệm vụ nghiên cứu}{1}{section*.4}%
+\contentsline {section}{3. Đối tượng, phạm vi và phương pháp thực hiện}{2}{section*.4}%
+\contentsline {section}{4. Bố cục báo cáo}{2}{section*.4}%
+\contentsline {chapter}{\numberline {1}CƠ SỞ LÝ THUYẾT}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Khái quát về website tập luyện cá nhân hóa}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Dữ liệu sức khỏe và dữ liệu bài tập}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Dữ liệu sức khỏe của người dùng}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Dữ liệu bài tập}{4}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Nguyên tắc gợi ý bài tập dựa trên luật}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Cơ sở về ứng dụng web full-stack}{5}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Cơ sở dữ liệu quan hệ và Prisma ORM}{5}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Xác thực tài khoản và quản lý phiên}{6}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Chatbot hỗ trợ luyện tập}{6}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Nguyên tắc thiết kế giao diện và trải nghiệm}{6}{section.1.8}%
+\contentsline {chapter}{\numberline {2}KHẢO SÁT VÀ PHÂN TÍCH HỆ THỐNG}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Phát biểu bài toán}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Mục tiêu khảo sát}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Tổng hợp kết quả khảo sát người dùng}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Phân tích sản phẩm tương tự}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Nhóm người dùng và tác nhân hệ thống}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Yêu cầu chức năng}{10}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Yêu cầu phi chức năng}{11}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Phân tích rủi ro yêu cầu}{12}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Ma trận truy vết yêu cầu}{13}{section.2.9}%
+\contentsline {chapter}{\numberline {3}THIẾT KẾ HỆ THỐNG}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Thiết kế luồng nghiệp vụ tổng quát}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kiến trúc tổng thể của hệ thống}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Tác nhân và phạm vi quyền}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Đặc tả Use Case tổng quát}{16}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Thiết kế Use Case chi tiết}{18}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Thiết kế chuỗi tương tác xử lý}{21}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Thiết kế mô hình dữ liệu}{28}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Thiết kế route và API logic}{30}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Thiết kế xử lý bảo mật và phân quyền}{31}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Thiết kế giao diện}{32}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Thiết kế thông báo và xử lý lỗi}{32}{section.3.11}%
+\contentsline {chapter}{\numberline {4}TRIỂN KHAI}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Môi trường triển khai và cấu trúc mã nguồn}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Thu nhận và xử lý dữ liệu bài tập}{33}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Xác định độ khó bài tập}{34}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Ước lượng thời lượng bài tập}{35}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Phân loại cường độ}{35}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Ánh xạ tình trạng sức khỏe}{36}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Triển khai xác thực và quản lý phiên}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Triển khai hồ sơ sức khỏe}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Triển khai chức năng gợi ý bài tập}{37}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Triển khai lập kế hoạch và lịch tập}{38}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Triển khai chi tiết bài tập và ghi nhận tiến trình}{38}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Triển khai thống kê và phản hồi cá nhân hóa}{39}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Triển khai chatbot hỗ trợ}{39}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Triển khai giao diện người dùng}{41}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Triển khai giao diện quản trị}{48}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Kiểm thử chức năng}{50}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Đánh giá bảo mật khi triển khai}{52}{section.4.13}%
+\contentsline {section}{\numberline {4.14}Đánh giá kết quả triển khai}{52}{section.4.14}%
+\contentsline {section}{\numberline {4.15}Hướng dẫn vận hành và bảo trì}{53}{section.4.15}%
+\contentsline {chapter}{KẾT LUẬN}{54}{chapter*.53}%
+\contentsline {chapter}{TÀI LIỆU THAM KHẢO}{56}{chapter*.54}%
+\contentsline {chapter}{PHỤ LỤC}{57}{chapter*.54}%
+\contentsline {section}{Phụ lục A. CÂU HỎI KHẢO SÁT ĐỀ XUẤT}{57}{appendix*.55}%
+\contentsline {section}{Phụ lục B. MẪU DỮ LIỆU BÀI TẬP SAU CHUẨN HÓA}{58}{appendix*.56}%
+\contentsline {section}{Phụ lục C. CHECKLIST NGHIỆM THU CHỨC NĂNG}{59}{appendix*.57}%
+\contentsline {section}{Phụ lục D. GIẢ MÃ THUẬT TOÁN GỢI Ý BÀI TẬP}{60}{appendix*.58}%
+\contentsline {section}{Phụ lục E. MA TRẬN MÃ NGUỒN VÀ CHỨC NĂNG}{61}{appendix*.59}%
+\contentsline {section}{Phụ lục F. KỊCH BẢN KIỂM THỬ CHI TIẾT}{62}{appendix*.60}%
+\contentsline {section}{Phụ lục G. QUY TẮC RÀ SOÁT MÃ NGUỒN TRƯỚC KHI TRIỂN KHAI}{65}{appendix*.61}%
+\contentsline {section}{\numberline {G.1}Rà soát cấu hình và biến môi trường}{65}{section.G.1}%
+\contentsline {section}{\numberline {G.2}Rà soát quyền truy cập}{65}{section.G.2}%
+\contentsline {section}{\numberline {G.3}Rà soát dữ liệu và trải nghiệm}{65}{section.G.3}%
+\contentsline {section}{Phụ lục H. PHÂN TÍCH CÁC ĐIỂM CẦN HOÀN THIỆN TỪ MÃ NGUỒN}{67}{appendix*.62}%
+\contentsline {chapter}{NHẬN XÉT CỦA GIÁO VIÊN HƯỚNG DẪN}{69}{appendix*.63}%

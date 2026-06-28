@@ -57,9 +57,9 @@
 \contentsline {section}{\numberline {4.10}Triển khai giao diện người dùng}{41}{section.4.10}%
 \contentsline {section}{\numberline {4.11}Triển khai giao diện quản trị}{48}{section.4.11}%
 \contentsline {section}{\numberline {4.12}Kiểm thử chức năng}{50}{section.4.12}%
-\contentsline {section}{\numberline {4.13}Đánh giá bảo mật khi triển khai}{52}{section.4.13}%
+\contentsline {section}{\numberline {4.13}Đánh giá bảo mật khi triển khai}{51}{section.4.13}%
 \contentsline {section}{\numberline {4.14}Đánh giá kết quả triển khai}{52}{section.4.14}%
-\contentsline {section}{\numberline {4.15}Hướng dẫn vận hành và bảo trì}{53}{section.4.15}%
+\contentsline {section}{\numberline {4.15}Hướng dẫn vận hành và bảo trì}{52}{section.4.15}%
 \contentsline {chapter}{KẾT LUẬN}{54}{chapter*.53}%
 \contentsline {chapter}{TÀI LIỆU THAM KHẢO}{56}{chapter*.54}%
 \contentsline {chapter}{PHỤ LỤC}{57}{chapter*.54}%
